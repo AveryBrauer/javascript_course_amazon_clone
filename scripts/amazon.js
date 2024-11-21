@@ -45,7 +45,7 @@ products.forEach((product) => {
       </div>
 
       <div>
-        <img src="images/ratings/rating-${product.rating.stars * 10}.png">
+        <img src="images/ratings/rating-${product.rating.stars * 10}.png" alt="Rating">
         <div>
           ${product.rating.count}
         </div>
@@ -56,17 +56,17 @@ products.forEach((product) => {
       </div>
 
       <div>
-        <select>
-          <option selected="">1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
+        <select class="js-quantity-select">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
         </select>
       </div>
 
@@ -84,20 +84,19 @@ document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
   button.addEventListener('click', () => {
     const productId = button.dataset.productId;
 
-    let matchingItem;
-    cart.forEach((item) => {
-      if (productId === item.productId) {
-        matchingItem = item;
-      }
-    });
+    const selectElement = button.closest('div').querySelector('.js-quantity-select');
+    const quantity = parseInt(selectElement.value, 10);
+
+    let matchingItem = cart.find(item => item.productId === productId);
+
     if (matchingItem) {
-      matchingItem.quantity++;
+      matchingItem.quantity += quantity;
     } else {
       cart.push({
         productId: productId,
-        quantity: 1
+        quantity: quantity
       });
     }
-    console.log(cart);
+    console.log('current cart: %O', cart);
   });
 });
