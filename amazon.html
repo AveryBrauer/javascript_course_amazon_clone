@@ -9,11 +9,40 @@
 
     <link rel="stylesheet" href="styles/pages/amazon.css">
     <link rel="stylesheet" href="styles/shared/general.css">
+    <link rel="stylesheet" href="styles/shared/header.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <header class="header">
+      <section class="left-section">
+        <a class="header-link" href="TODO">
+          <img class="amazon-logo" src="images/header/amazon-logo-white.png">
+        </a>
+      </section>
+
+      <section class="middle-section">
+        <input class="search-bar" type="text", placeholder="Search">
+        <button class="search-button">
+          <img class="search-icon" src="images/header/search-icon.png">
+        </button>
+      </section>
+
+      <section class="right-section">
+        <a class="orders-link header-link" href="TODO">
+          <span class="returns-text">Returns</span>
+          <span class="orders-text">& Orders</span>
+        </a>
+        <a class="cart-link header-link" href="TODO">
+          <img class="cart-icon" src="images/header/cart-icon.png">
+          <div class="cart-quantity">TODO</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </section>
+    </header>
+
     <main>
       <div class="js-products-grid products-grid"></div>
     </main>
