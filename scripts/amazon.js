@@ -78,5 +78,12 @@ document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
       });
     }
     console.log('current cart: %O', cart);
+    updateCartSymbol(quantity);
   });
 });
+
+function updateCartSymbol(toAdd) {
+  document.querySelector(".js-cart-quantity").innerHTML
+    = parseInt(document.querySelector(".js-cart-quantity").innerHTML)
+      + toAdd;
+}
